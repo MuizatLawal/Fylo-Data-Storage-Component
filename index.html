@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+      
+    <title>Frontend Mentor | Fylo data storage component</title>
+    <style>
+      body {
+        background-color: rgba(10, 0, 31, 1);
+        background-image: url(images/bg-desktop.png); 
+        background-size: 100% 50%;
+        background-repeat: no-repeat;
+        background-position-y: 100%;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+      }
+
+      @media only screen and (max-width: 425px) {
+        body {
+          background-image: url(images/bg-mobile.png);
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+      }
+
+      @media only screen and (max-width: 768px) {
+        body {
+          background-image: url(images/bg-mobile.png) ;
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+      }
+      /**
+      .empty {
+        align-items: end;
+        display: flex;
+        justify-content: center;
+        height: 400px;
+        padding: 0 0 20px 0;
+      }
+
+      @media only screen and (max-width: 425px) {
+        .empty {
+          display: none;
+        }
+      }
+      ***/
+      whole-container {
+        align-items: end;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+      }
+
+      @media only screen and (max-width: 425px) {
+        .whole-container {
+          height: 240px;
+        }
+      }
+
+      .div {
+        align-items: end;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        margin: 0 0 0px 0;
+        padding: 230px 0 236px 0;
+      }
+
+      @media only screen and (max-width: 425px) {
+        .div {
+          align-items: center;
+          flex-direction: column;
+          padding: 230px 50px 236px 0;
+        }
+      }
+
+      @media only screen and (max-width: 768px) {
+        .div {
+          align-items: center;
+          flex-direction: column;
+          justify-content: center;
+          margin-left: 40px;
+          padding-right: 40px;
+        }
+      }
+
+      .first-container {
+        background-color: rgba(1, 0, 66, 1);
+        border-radius: 8px 100px 8px 8px;
+        margin: 0 10px 0 0;
+        padding: 30px 100px 30px 30px;
+      }
+
+      @media only screen and (min-width: 320px) {
+        .first-container {
+          margin: 0 0 10px 0;
+          padding: 30px 80px 30px 30px;
+        }
+      }
+
+      @media only screen and (min-width: 425px) {
+        .first-container {
+          margin: 0 0 10px 0;
+          width: 60%;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        .first-container {
+          width: 32%;
+          margin: 0 0 10px 0;
+        }
+      }
+
+      @media only screen and (min-width: 1024px) {
+        .first-container {
+          margin: 0 10px 0 0;
+          padding: 30px 0 30px 30px;
+        }
+      }
+
+     .filo-logo{
+        display: inline-block;  
+     }
+
+     .icon-container {
+      width: 170px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 20px;
+     }
+
+     .document-icon {
+        background-color: rgba(24, 22, 22, 1);
+        border-radius: 8px;
+        padding: 8px 10px 8px 10px;
+        
+      }
+
+     .folder-icon {
+        background-color: rgba(24, 22, 22, 1);
+        border-radius: 8px;
+        padding: 10px 10px 10px 10px;
+        
+      }
+
+     .upload-icon {
+        background-color: rgba(24, 22, 22, 1);
+        border-radius: 8px;
+       padding: 12px 10px 12px 10px;
+       
+      }
+
+      .second-container {
+        background-color: rgba(1, 0, 66, 1);
+        border-radius: 8px;
+        height: max-content;
+        width: 400px;
+        padding: 20px 40px 20px 40px;
+        position: relative;
+      }
+
+      @media only screen and (min-width: 425px) {
+        .second-container {
+          width: 70%;
+          padding: 30px 40px 30px 40px;
+          position: relative;
+        }
+      }
+
+      @media only screen and (min-width: 320px) {
+        .second-container {
+          width: 80%;
+          padding: 30px 40px 30px 40px;
+          position: relative;
+          text-align: center;
+        }
+      }
+
+      @media only screen and (min-width: 375px) {
+        .second-container {
+          width: 70%;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        .second-container {
+          width: 36%;
+        }
+      }
+
+      .remaining-data-con {
+        background-color: white;
+        border-radius: 8px 8px 0 8px;
+        padding: 16px 8px;
+        position: absolute;
+        bottom: 88px;
+        left: 310px;
+        text-align: center;
+        width: 30%;
+      }
+
+      @media only screen and (min-width: 320px) {
+        .remaining-data-con {
+          border-radius: 8px;
+            bottom: -60px;
+            left: 74px;
+        }
+      }
+
+      @media only screen and (min-width: 375px) {
+        .remaining-data-con {
+          border-radius: 8px;
+          bottom: -60px;
+          left: 78px;
+          width: 34%;
+        }
+      }
+      
+      @media only screen and (min-width: 425px) {
+        .remaining-data-con {
+          border-radius: 8px;
+          padding: 16px 10px;
+          position: absolute;
+          bottom: -60px;
+          left: 90px;
+          width: 30%;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        .remaining-data-con {
+          bottom: -50px;
+          left: 86px;
+          width: 40%;
+        }
+      }
+
+      @media only screen and (min-width: 1024px) {
+        .remaining-data-con{
+          bottom: 88px;
+          left: 310px;
+        }
+      }
+
+      .Speech-Bubble:before {
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid transparent;
+        border-right: 10px solid #ffffff;
+        border-top: 10px solid #ffffff;
+        content: "";
+        height: 0px;
+        position: absolute;
+        /** the right value below pushed the created bubbble to the right edge of the box while bottom value places the bubble at the bottom of the box**/
+        right: 0.15px;
+        bottom: -14px;
+        width: 0px;
+      }
+
+      @media only screen and (max-width: 425px) {
+        .Speech-Bubble:before {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: 768px) {
+        .Speech-Bubble:before {
+          display: none;
+        }
+      }
+
+      .data-number {
+        display: inline-block;
+        font-size: 18px;
+        font-weight: bolder;
+        vertical-align: middle;
+      }
+
+      .data-number-p {
+        font-size: 26px;
+        font-weight: 900;
+        margin: 0;
+      }
+
+      .data-value {
+        color: rgba(102, 102, 102, 1);
+        display: inline-block;
+        font-size: 10px;
+      }
+
+      .data-value-p {
+        margin: 0;
+      }
+
+      .storage-size {
+        color: rgba(102, 102, 102, 1);
+        font-size: small;
+        margin: 0 0 10px 0;
+      }
+
+      @media only screen and (min-width: 320px) {
+        .storage-size {
+          font-size: 10px;
+        }
+      }
+
+      @media only screen and (min-width: 375px) {
+        .storage-size {
+          font-size: 12px;
+        }
+      }
+
+      @media only screen and (min-width: 425px) {
+        .storage-size {
+          font-size: 14px;
+          text-align: center;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        .storage-size {
+          font-size: 16px;
+        }
+      }
+
+      @media only screen and (min-width: 1024px) {
+        .storage-size {
+          font-size: small;
+          text-align: left;
+        }
+      }
+
+      .gb {
+        color: white;
+      }
+
+      input[type="range"] {
+       width: 100%;
+      }
+
+      .gb-value {
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      @media only screen and (min-width: 320px) {
+        .gb-value {
+          font-size: 10px;
+        }
+      }
+
+      @media only screen and (min-width: 1024px) {
+        .gb-value {
+          font-size: small;
+        }
+      }
+
+      .attribution {
+        font-size: 11px;  
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      .attribution-mobile {
+        font-size: 11px;
+        text-align: center;
+      }
+
+      .attribution-mobile a {
+        color: hsl(228, 45%, 44%);
+      }
+
+
+      @media only screen and (min-width: 1024px) {
+        .attribution-mobile {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--<div class="whole-container">-->
+      <div class="div">
+        <div class="first-container">
+          <img class="filo-logo" src="images/logo.svg" alt="filo-logo">
+    
+          <div class="icon-container">
+            <div class="document-icon">
+              <img src="images/icon-document.svg" alt="document-icon">
+            </div>
+    
+            <div class="folder-icon">
+              <img src="images/icon-folder.svg" alt="folder-icon">
+            </div>
+      
+            <div class="upload-icon">
+              <img src="images/icon-upload.svg" alt="upload-icon">
+            </div>
+          </div>
+        </div>
+    
+        <div class="second-container">
+          <div class="remaining-data-con">
+            <div class="Speech-Bubble">
+              <div class="data-number">
+                <p class="data-number-p">185</p>
+              </div>
+  
+              <div class="data-value">
+                <p class="data-value-p">GB LEFT</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="storage-size">
+            You’ve used <strong class="gb">815 GB</strong> of your storage
+          </p>
+    
+          <input type="range" min="1" max="100" value="74">
+    
+          <div class="gb-value">
+            <div>0 GB</div>
+            <div>1000 GB</div>
+          </div>
+        </div>
+      </div>
+    <!--</div>-->
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/MuizatLawal">MuizatLawal</a>.
+    </div>
+
+    <!--
+    <footer class="attribution-mobile">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/MuizatLawal">MuizatLawal</a>.
+    </footer>
+    <div class="empty">
+     
+    </div> 
+    -->
+  </body>
+</html>
